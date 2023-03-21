@@ -1,0 +1,31 @@
+POST http://localhost:3000/add
+Content-Type: application/json
+
+{
+    "nom" : "Bouna",
+    "prenom" : "Bamba",
+    "mail": "esp",
+    "password": "passer" 
+}
+
+###
+
+GET http://localhost:3000/etudiant/1
+
+###
+
+PATCH http://localhost:3000/1
+Content-Type: application/json
+{
+    "janvier":"true",
+    "fevrier":"true"
+}
+
+###
+
+GET http://localhost:3000/auth
+Content-Type: application/json
+{
+    "mail": "esp",
+    "password": "passer"
+}
