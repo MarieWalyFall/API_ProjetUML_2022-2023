@@ -7,7 +7,7 @@ const EtudiantModel = require('../models/etudiant.model')
 module.exports.addEtudiant = async(req, res) => {
     try {
         const newEtudiant = new EtudiantModel ({
-            id: 1,
+            id: req.body.id,
             nom: req.body.nom,
             prenom: req.body.prenom,
             mail: req.body.mail,
@@ -93,3 +93,19 @@ module.exports.updateMonths = async (req, res) => {
   }
 }
   
+/**
+ * @description Supprimer les etudiants présents dans la base de donnée
+ * @param id
+ */
+module.exports.deleteEtudiant = async (req, res) => {
+  try {
+    const etudiant = await EtudiantModel.findOne({id: req.params.id})
+    if(etudiant){
+      const etudiantDelete = await EtudiantModel.findOneAndDelete({id: req.params.id})
+      res.status(200).json(etudiantDelete)
+    }
+    res.status(404).json("Cet étudiant n'existe pas !")
+  } catch (error) {
+    res.status(500).json({ message: error })
+  }
+}

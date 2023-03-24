@@ -3,16 +3,17 @@ const Schema = mongoose.Schema;
 
 // Définition du schéma pour la collection "etudiants"
 const etudiantSchema = new Schema({
-  id: { type: Number, required: false },
+  id: { type: Number, required: true, unique: true},
   nom: { type: String, required: true },
   prenom: { type: String, required: true },
-  mail: { type: String, required: false },
-  password: { type: String, required: false },
-  anneeAcademique: { type: String, required: false },
-  classe: { type: String, required: false },
-  departement: { type: String, required: false },
-  formation: { type: String, required: false },
-  montant: { type: String, required: false },
+  dateLieuNaissance:{type: String},
+  mail: { type: String, unique: true},
+  password: { type: String },
+  anneeAcademique: { type: String },
+  classe: { type: String },
+  departement: { type: String },
+  formation: { type: String },
+  montant: { type: String },
   exoneration:{type: String},  
   mois: {
     janvier: { type: Boolean, default: false },

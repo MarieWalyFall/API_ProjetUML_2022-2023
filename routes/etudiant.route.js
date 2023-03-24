@@ -6,6 +6,7 @@ const authentificationController = require('../controllers/authentification.cont
 routerEtudiant.post('/add', etudiantController.addEtudiant)
 routerEtudiant.get('/etudiant/:id', etudiantController.getEtudiant)
 routerEtudiant.put('/etudiant/:id', etudiantController.updateMonths)
+routerEtudiant.delete('/:id', etudiantController.deleteEtudiant)
 routerEtudiant.post('/auth', authentificationController.authEtudiant)
 
 module.exports = routerEtudiant
